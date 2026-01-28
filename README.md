@@ -1,1 +1,1 @@
-# lynx
+# Official code for LynX
