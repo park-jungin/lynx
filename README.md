@@ -8,7 +8,7 @@ LynX is a multi-modal instruction-following model with unified training/evaluati
   <img src="assets/overview.png" alt="LynX overview" width="900"/>
 </p>
 
-**Figure 1.** Overview of the proposed method.
+**Figure 1.** Overview of LynX.
 
 ## Comparison to prior approaches
 
@@ -27,7 +27,7 @@ LynX is a multi-modal instruction-following model with unified training/evaluati
   </tr>
 </table>
 
-**Figure 3.** (a) Existing approaches require modality-specific encoders/projectors and paired supervision; (b) LynX integrates new modalities by repurposing the internalized interface.
+**Figure 2.** (a) Existing approaches require modality-specific encoders/projectors and paired supervision; (b) LynX integrates new modalities by repurposing the internalized interface.
 
 <table>
   <tr>
@@ -44,7 +44,7 @@ LynX is a multi-modal instruction-following model with unified training/evaluati
   </tr>
 </table>
 
-**Figure 2.** (a) Performance highlight. (b) Parameter comparison.
+**Figure 3.** (a) Performance highlight. (b) Parameter comparison.
 
 ## Environment
 
@@ -130,21 +130,6 @@ bash scripts/0.5b/avsd_sft.sh
 bash scripts/0.5b/avsd_eval.sh
 ```
 
-### Ego-Exo4D (egocentric video)
-
-`egoexo_train.sh` can optionally run Stage-3 SFT in the same script.
-
-```bash
-# Interface alignment (Stage-1/2 only)
-RUN_STAGE3=0 bash scripts/0.5b/egoexo_train.sh
-
-# Instruction tuning (runs Stage-3 SFT after Stage-1/2)
-RUN_STAGE3=1 bash scripts/0.5b/egoexo_train.sh
-
-# Inference (set adapter paths as needed)
-bash scripts/egoexo_eval.sh
-```
-
 ### ScanQA + SQA3D (3D)
 
 We do **not** separate interface alignment per 3D benchmark; run the shared 3D interface-alignment once, then run instruction-tuning and inference per benchmark.
@@ -175,4 +160,19 @@ RUN_STAGE3=1 bash scripts/7b/llava_video.sh
 
 # Inference (VideoMME / MVBench / MLVU via lmms-eval)
 bash scripts/0.5b/llava_video_eval_lmms.sh
+```
+
+### Ego-Exo4D (egocentric video)
+
+`egoexo_train.sh` can optionally run Stage-3 SFT in the same script.
+
+```bash
+# Interface alignment (Stage-1/2 only)
+RUN_STAGE3=0 bash scripts/0.5b/egoexo_train.sh
+
+# Instruction tuning (runs Stage-3 SFT after Stage-1/2)
+RUN_STAGE3=1 bash scripts/0.5b/egoexo_train.sh
+
+# Inference (set adapter paths as needed)
+bash scripts/egoexo_eval.sh
 ```
