@@ -10,6 +10,25 @@ LynX is a multi-modal instruction-following model with unified training/evaluati
 
 **Figure 1.** Overview of the proposed method.
 
+## Comparison to prior approaches
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="assets/existing.png" alt="Existing approaches" width="420"/>
+      <br/>
+      <b>(a)</b> Existing approaches
+    </td>
+    <td align="center" width="50%">
+      <img src="assets/ours.png" alt="Our LynX" width="420"/>
+      <br/>
+      <b>(b)</b> Our LynX
+    </td>
+  </tr>
+</table>
+
+**Figure 3.** (a) Existing approaches require modality-specific encoders/projectors and paired supervision; (b) LynX integrates new modalities by repurposing the internalized interface.
+
 <table>
   <tr>
     <td align="center" width="50%">
@@ -157,4 +176,3 @@ RUN_STAGE3=1 bash scripts/7b/llava_video.sh
 # Inference (VideoMME / MVBench / MLVU via lmms-eval)
 bash scripts/0.5b/llava_video_eval_lmms.sh
 ```
-
